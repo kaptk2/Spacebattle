@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script type='text/javascript' src='jquery.js'></script>
+</head>
+<body>
+<h1>Space Battle</h1>
+<div id='status'></div>
+<script type='text/javascript'>
+function statusCallback() {
+	console.log("checking json");
+	console.log('about to call');
+	$.getJSON("status",function(data) {
+		console.log("returned from call");
+ 		var items = [];
+
+  		var t = '';
+  		$.each(data, function(key, val) {
+  			console.log("reading id="+key);
+  			var s = '<li id="' + key + '">' + val.x +','+val.y+','+val.id+'</li>';
+  			//var selector = "#s"+val.id;
+  			//console.log("selector="+selector+".");
+  			//$(selector).attr("x",val.x);
+  			//$(selector).attr("y",val.y);
+ 			t = t + "<text x='"+val.x+"' y='"+val.y+"' rotate='"+val.h+"'>"+val.id+"</text>";
+    		console.log(s);
+		});
+
+    	t = "<svg width='200' height='200' style='background-color:eeffee;'>" + t + "</svg>";
+    	$("#status").html(t);
+    	console.log(t);
+    	t='';
+	});
+}
+
+setInterval(statusCallback,3000);
+</script>
+</body>
+</html>
