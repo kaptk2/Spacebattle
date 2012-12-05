@@ -6,33 +6,42 @@
 <h1>Space Battle</h1>
 <div id='status'></div>
 <script type='text/javascript'>
-function statusCallback() {
-	console.log("checking json");
-	console.log('about to call');
-	$.getJSON("status",function(data) {
-		console.log("returned from call");
- 		var items = [];
+	function statusCallback() {
+		console.log("checking json");
+		console.log('about to call');
+		$.getJSON("status", function (data) {
+			console.log("returned from call");
+			var items = [];
 
-  		var t = '';
-  		$.each(data, function(key, val) {
-  			console.log("reading id="+key);
-  			var s = '<li id="' + key + '">' + val.x +','+val.y+','+val.id+'</li>';
-  			//var selector = "#s"+val.id;
-  			//console.log("selector="+selector+".");
-  			//$(selector).attr("x",val.x);
-  			//$(selector).attr("y",val.y);
- 			t = t + "<text x='"+val.x+"' y='"+val.y+"' rotate='"+val.h+"'>"+val.id+"</text>";
-    		console.log(s);
+			var t = '';
+			$.each(data, function (key, val) {
+				console.log(val);
+				console.log("reading id=" + key);
+				var s = '<li id="' + key + '">' + val.x + ',' + val.y + ',' + val.id + '</li>';
+				//var selector = "#s"+val.id;
+				//console.log("selector="+selector+".");
+				//$(selector).attr("x",val.x);
+				//$(selector).attr("y",val.y);
+				//t = t + "<text x='"+val.x+"' y='"+val.y+"' rotate='"+val.h+"'>"+val.id+"</text>";
+				t = t + ''
+				+ '<svg x="' + val.x + '" y="' + val.y + '" style="width:75px; height:75px;">'
+				+ '<g transform="translate(' + val.dx + ', ' + val.dy + ') rotate(' + val.h + ', 25, 25)" >'
+				+ '<path id = "lineAB" d = "M 10 35 l 15 -30" stroke = "white" stroke-width = "2" fill = "none"/>'
+				+ '<path id = "lineBC" d = "M 25 5 l 15 30" stroke = "white" stroke-width = "2" fill = "none"/>'
+				+ '<path id = "quadcurveABC" d = "M 10 35 q 15 -30 30 0" stroke = "white" stroke-width = "2" fill = "none"/>'
+				+ '</g>'
+				+ '</svg>';
+				console.log(s);
+			});
+
+			t = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:800px; height:600px; background-color:black">' + t + '</svg>';
+			$("#status").html(t);
+			console.log(t);
+			t = '';
 		});
+	}
 
-    	t = "<svg width='200' height='200' style='background-color:eeffee;'>" + t + "</svg>";
-    	$("#status").html(t);
-    	console.log(t);
-    	t='';
-	});
-}
-
-setInterval(statusCallback,3000);
+	setInterval(statusCallback, 3000);
 </script>
 </body>
 </html>
