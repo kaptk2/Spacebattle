@@ -47,5 +47,22 @@ public class Ship {
 		this.y = this.y + dT * this.dy;
 		lastTimeUpdated = now;
 		this.heading = (this.heading + dT*100) % 360.0;
+
+		int mapsize = 200;
+		if(this.x > mapsize) {
+			this.x = this.x - mapsize;
+		}
+
+		if(this.x < 0) {
+			this.x = this.x + mapsize;
+		}
+
+		if(this.y > mapsize) {
+			this.y = this.y - mapsize;
+		}
+
+		if(this.y < 0) {
+			this.y = this.y + mapsize;
+		}
 	}
 }
