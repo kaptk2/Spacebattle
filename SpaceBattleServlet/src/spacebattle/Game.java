@@ -14,8 +14,6 @@ public class Game {
 	}
 	
 	static {
-		ships.add( new Ship("0",100,120) );
-		ships.add( new Ship("1",110,110) );
 		new Thread(new UpdateRunnable()).start();
 	}
 }

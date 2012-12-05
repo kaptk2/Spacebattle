@@ -6,6 +6,11 @@
 <h1>Space Battle</h1>
 <div id='status'></div>
 <script type='text/javascript'>
+	$(document).ready(function () {
+		$.getJSON("newPlayer", function (data) {
+			console.log(data);
+		});
+	});
 	function statusCallback() {
 		console.log("checking json");
 		console.log('about to call');
@@ -25,7 +30,7 @@
 				//t = t + "<text x='"+val.x+"' y='"+val.y+"' rotate='"+val.h+"'>"+val.id+"</text>";
 				t = t + ''
 				+ '<svg x="' + val.x + '" y="' + val.y + '" style="width:75px; height:75px;">'
-				+ '<g transform="translate(' + val.dx + ', ' + val.dy + ') rotate(' + val.h + ', 25, 25)" >'
+				+ '<g transform="scale(0.5) translate(' + val.dx + ', ' + val.dy + ') rotate(' + val.h + ', 25, 25)" >'
 				+ '<path id = "lineAB" d = "M 10 35 l 15 -30" stroke = "white" stroke-width = "2" fill = "none"/>'
 				+ '<path id = "lineBC" d = "M 25 5 l 15 30" stroke = "white" stroke-width = "2" fill = "none"/>'
 				+ '<path id = "quadcurveABC" d = "M 10 35 q 15 -30 30 0" stroke = "white" stroke-width = "2" fill = "none"/>'
