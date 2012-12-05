@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 public class Status extends HttpServlet {
+	@SuppressWarnings("unused")
 	private int count=0;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
