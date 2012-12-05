@@ -29,4 +29,15 @@
       <servlet-name>accelerate</servlet-name>
       <url-pattern>/accelerate</url-pattern>
    </servlet-mapping>
+   <servlet>
+       <servlet-name>newPlayer</servlet-name>
+       <servlet-class>spacebattle.NewPlayer</servlet-class>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>newPlayer</servlet-name>
+       <url-pattern>/newPlayer</url-pattern>
+   </servlet-mapping>
+   <listener>
+       <listener-class>spacebattle.NewPlayer</listener-class>
+   </listener>
 </web-app>
