@@ -41,7 +41,9 @@ public class Ship {
 	
 	public void setHeading( double newHeading ){
 		this.update();
-		this.heading = newHeading;
+		long now = System.currentTimeMillis();
+		double dT = (now - lastTimeUpdated)*0.0001; // in seconds
+		this.heading = (newHeading + dT*100) % 360.0;
 	}
 	
 	public void update() {
@@ -52,9 +54,8 @@ public class Ship {
 		this.x = this.x + dT * this.dx;
 		this.y = this.y + dT * this.dy;
 		lastTimeUpdated = now;
-		this.heading = (this.heading + dT*100) % 360.0;
 
-		int mapsize = 200;
+		int mapsize = 600;
 		if(this.x > mapsize) {
 			this.x = this.x - mapsize;
 		}
