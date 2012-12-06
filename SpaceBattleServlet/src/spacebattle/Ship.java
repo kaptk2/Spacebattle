@@ -38,6 +38,12 @@ public class Ship {
 		this.ax = ax;
 		this.ay = ay;
 	}
+	
+	public void setHeading( double newHeading ){
+		this.update();
+		this.heading = newHeading;
+	}
+	
 	public void update() {
 		long now = System.currentTimeMillis();
 		double dT = (now - lastTimeUpdated)*0.0001; // in seconds
