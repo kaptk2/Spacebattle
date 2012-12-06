@@ -30,12 +30,20 @@
       <url-pattern>/accelerate</url-pattern>
    </servlet-mapping>
    <servlet>
-       <servlet-name>newPlayer</servlet-name>
-       <servlet-class>spacebattle.NewPlayer</servlet-class>
+      <servlet-name>newPlayer</servlet-name>
+      <servlet-class>spacebattle.NewPlayer</servlet-class>
    </servlet>
    <servlet-mapping>
-       <servlet-name>newPlayer</servlet-name>
-       <url-pattern>/newPlayer</url-pattern>
+      <servlet-name>newPlayer</servlet-name>
+      <url-pattern>/newPlayer</url-pattern>
+   </servlet-mapping>
+   <servlet>
+      <servlet-name>action</servlet-name>
+      <servlet-class>spacebattle.Action</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>action</servlet-name>
+      <url-pattern>/action</url-pattern>
    </servlet-mapping>
    <listener>
        <listener-class>spacebattle.NewPlayer</listener-class>
