@@ -8,20 +8,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 @SuppressWarnings("serial")
 public class NewPlayer extends HttpServlet implements HttpSessionListener {
 	
-	private HttpSession session;
 	private int rx = (int)(Math.random()*200);
 	private int ry = (int)(Math.random()*200);
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		session = req.getSession(true);
+		req.getSession(true);
+		PrintWriter writer = resp.getWriter();
+		writer.println("[{" +
+				"'shipId': '" + req.getSession().getId() + "'}];");
 	}
 
 	@Override
