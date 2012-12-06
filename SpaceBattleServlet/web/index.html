@@ -1,5 +1,6 @@
 <html>
 <head>
+	<title>SpaceBattleServlet</title>
 	<script type='text/javascript' src='jquery.js'></script>
 </head>
 <body>
@@ -8,14 +9,20 @@
 <script type='text/javascript'>
 	$(document).ready(function () {
 		$.getJSON("newPlayer", function (data) {
-			console.log(data);
+			if (console) {
+				console.log(data);
+			}
 		});
 	});
 	function statusCallback() {
-		console.log("checking json");
-		console.log('about to call');
+		if (console) {
+			console.log("checking json");
+			console.log('about to call');
+		}
 		$.getJSON("status", function (data) {
-			console.log("returned from call");
+			if (console) {
+				console.log("returned from call");
+			}
 			var items = [];
 
 			var t = '';
@@ -23,25 +30,25 @@
 				console.log(val);
 				console.log("reading id=" + key);
 				var s = '<li id="' + key + '">' + val.x + ',' + val.y + ',' + val.id + '</li>';
-				//var selector = "#s"+val.id;
-				//console.log("selector="+selector+".");
-				//$(selector).attr("x",val.x);
-				//$(selector).attr("y",val.y);
-				//t = t + "<text x='"+val.x+"' y='"+val.y+"' rotate='"+val.h+"'>"+val.id+"</text>";
+
 				t = t + ''
 				+ '<svg x="' + val.x + '" y="' + val.y + '" style="width:75px; height:75px;">'
 				+ '<g transform="scale(0.5) rotate(' + val.h + ', 25, 25)" >'
 				+ '<path id = "lineAB" d = "M 10 35 l 15 -30" stroke = "white" stroke-width = "2" fill = "none"/>'
 				+ '<path id = "lineBC" d = "M 25 5 l 15 30" stroke = "white" stroke-width = "2" fill = "none"/>'
-				+ '<path id = "quadcurveABC" d = "M 10 35 q 15 -30 30 0" stroke = "white" stroke-width = "2" fill = "none"/>'
+				+ '<path id = "quadcurveABC" d = "M 10 35 q 15 -30 30 0" stroke = "white" stroke-width = "3" fill = "none"/>'
 				+ '</g>'
 				+ '</svg>';
-				console.log(s);
+				if (console) {
+					console.log(s);
+				}
 			});
 
-			t = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:200px; height:200px; background-color:black">' + t + '</svg>';
+			t = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:600px; height:600px; background-color:black">' + t + '</svg>';
 			$("#status").html(t);
-			console.log(t);
+			if (console) {
+				console.log(t);
+			}
 			t = '';
 		});
 	}

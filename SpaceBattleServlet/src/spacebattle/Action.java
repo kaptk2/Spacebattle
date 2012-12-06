@@ -29,10 +29,11 @@ public class Action extends HttpServlet {
 		}
 		
 		double currHeading = userShip.getHeading();
+		double currHeadingRadian = Math.toRadians(currHeading);
 		
 		switch( action ){
 			case "forward":
-				userShip.setAcceleration( userShip.getAX() + Math.sin(currHeading), userShip.getAY() -Math.cos(currHeading) );
+				userShip.setAcceleration( userShip.getAX() + Math.sin(currHeadingRadian), userShip.getAY() - Math.cos(currHeadingRadian) );
 				break;
 			case "left":
 				if( ( currHeading - HEADING_CHANGE ) < 0 ){
@@ -46,7 +47,7 @@ public class Action extends HttpServlet {
 				
 			case "right":
 				if( ( currHeading + HEADING_CHANGE ) > 359 ){
-					userShip.setHeading( HEADING_CHANGE - 1 );
+					userShip.setHeading( HEADING_CHANGE );
 				}
 				else{
 					userShip.setHeading( currHeading + HEADING_CHANGE );
@@ -55,6 +56,10 @@ public class Action extends HttpServlet {
 				
 			case "shoot":
 				//TODO Add implementation for when a user presses the fire button
+				break;
+			
+			case "stopForward":
+				userShip.setAcceleration(0, 0);
 				break;
 		}
 	}
