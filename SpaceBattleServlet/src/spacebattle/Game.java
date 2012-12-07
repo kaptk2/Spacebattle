@@ -14,6 +14,7 @@ public class Game {
 			ship.update();
 		}
 		
+		
 		collidables = new ArrayList<Collidable>(ships.join(bullets));
 		ArrayList<Collidable> toRemove = new ArrayList<Collidable>();
 	
