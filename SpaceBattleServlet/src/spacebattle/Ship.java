@@ -126,7 +126,7 @@ public class Ship extends Collidable {
 	lastTimeUpdated = now;
 	this.heading = (this.heading + dT*100) % 360.0;
 	
-	int mapsize = 200;
+	int mapsize = 600;
 	if(this.x > mapsize) {
 	    this.x = this.x - mapsize;
 	}

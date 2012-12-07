@@ -7,10 +7,10 @@ public class Bullet extends Collidable {
     private double dx;
     private double dy;
     private double heading;
-    private lastTimeUpdated;
+    private long lastTimeUpdated;
 
     public Bullet(){
-  size = 2.0;
+  	size = 2.0;
 	x = 10.0;
 	y = 10.0;
 	heading = 0.0;
@@ -28,8 +28,8 @@ public class Bullet extends Collidable {
     public void update(){
 	long now = System.currentTimeMillis();
 	double dT = (now - lastTimeUpdated)*0.0001; // in seconds
-	dx = cos(heading);
-	dy = sin(heading);
+	//dx = cos(heading);
+	//dy = sin(heading);
 	x = x + dx*dT;
 	y = y + dy*dT;
 	lastTimeUpdated = now;

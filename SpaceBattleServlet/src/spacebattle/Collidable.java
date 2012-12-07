@@ -8,7 +8,7 @@ public class Collidable {
     private double y;
 
     public String getID(){return id;}
-    public double getSize(){return size}
+    public double getSize(){return size;}
     public double getX(){return x;}
     public double getY(){return y;}
 
