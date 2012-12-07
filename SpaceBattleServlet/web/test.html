@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Testing Key-Events</title>
+		<script type='text/javascript' src='jquery.js'></script>
+	</head>
+	<body>
+		Ship ID: <input type="text" id="shipID"><br>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:600px; height:600px; background-color:black">
+		</svg>
+		<script type="text/javascript">
+			shipID = $("#shipID").val();
+
+			$(document).keydown(function(event){
+				switch(event.which) {
+					case 87:
+					case 38:
+						//Call .get action?action=forward&id=$theID
+						console.log("'w' or the up arrow pushed");
+						console.log("Ship ID is: " + shipID);
+					break;
+					case 65:
+					case 37:
+						//Call .get action?action=left&id=$theID
+						console.log("'a' or the left arrow pushed");
+						console.log("Ship ID is: " + shipID);
+					break;
+					case 68:
+					case 39:
+						//Call .get action?action=right&id=$theID
+						console.log("'d' or the left arrow pushed");
+						console.log("Ship ID is: " + shipID);
+					break;
+					case 32:
+						//Call .get action?action=shoot&id=$theID
+						console.log("Spacebar");
+						console.log("Ship ID is: " + shipID);
+					break;
+				}
+			});
+
+			$(document).keyup(function(event){
+				switch(event.which) {
+					case 87:
+					case 38:
+						//Call .get action?action=forwardStop&id=$theID
+						console.log("'w' or the up arrow released");
+						console.log("Ship ID is: " + shipID);
+					break;
+				}
+			});
+		</script>
+	</body>
+</html>
